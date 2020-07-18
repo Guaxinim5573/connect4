@@ -10,6 +10,7 @@ Esta é a dependência criada especialmente para o bot funcionar.
 
 # Connect4 Jogo
 ![Connect4 Gameplay](https://upload.wikimedia.org/wikipedia/commons/a/ad/Connect_Four.gif)
+
 Connect Four é um [jogo de conexão](https://pt.qwe.wiki/wiki/Connection_game) de 2 jogadores onde os jogadores colocam uma peça em uma das 7 colunas, onde o objetivo é **conectar quatro de suas peças em uma linha, evitando o seu adversário de fazer o mesmo.**
 
 ## Sumário
