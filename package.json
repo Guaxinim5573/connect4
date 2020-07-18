@@ -1,12 +1,20 @@
 {
   "name": "connect-4",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "Connect 4 game in Discord using JS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Guaxinim5573/connect4.git"
+  },
+  "keywords": ["connect4", "discord", "discord.js", "bot", "discord bot", "game", "engine"],
+  "author": "Guaxinim5573",
+  "bugs": {
+    "url": "https://github.com/Guaxinim5573/connect4/issues"
+  },
+  "homepage": "https://github.com/Guaxinim5573/connect4",
+  "license": "MIT"
 }

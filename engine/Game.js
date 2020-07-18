@@ -36,12 +36,14 @@ class Game {
 
 		/**
 		 * Status do jogo
-		 * IN_PROGRESS, TIE, WINNER
+		 * IN_PROGRESS, TIE, WIN
 		 */
 		this.status = "IN_PROGRESS"
 
 		/** Quantas jogadas já foram feitas */
 		this.plays = 0
+
+		this.winner = null
 	}
 
 	get currentPlayer() {
@@ -54,14 +56,35 @@ class Game {
 	 * @returns {Boolean} Se a jogada é válida
 	 */
 	insert(column) {
-		// Se a coluna já está cheia
 		if(this.columns[column] >= 6) return false
-		// Pega onde a peça ficará no quadro do jogo
+		if(this.status !== "IN_PROGRESS") return false
 		const index = (6 - this.columns[column]) * 7 - (7 - column)
 		this.board[index] = this.currentPlayer.id
 		this.columns[column]++
 		this.plays++
+
+		const winner = checkWinner()
+		if(winner) {
+			this.status = "WIN"
+			this.winner = this.players[winner]
+		}
+		if(plays >= 42 && !winner) {
+			this.status = "TIE"
+		}
 		return true
+	}
+
+	checkWinner() {
+		const horizontal = checkHorizontal()
+		if(horizontal) return horizontal
+		const vertical = checkVertical()
+		if(vertical) return vertical
+		const diagonalLeft = checkDiagonalLeft()
+		if(diagonalLeft) return diagonalLeft
+		const diagonalRight = checkDiagonalRight()
+		if(diagonalRight) return diagonalRight
+
+		return null
 	}
 
 	checkHorizontal() {

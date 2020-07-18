@@ -1,1 +1,4 @@
-// Discord bot code will be here, in the future
+module.exports = {
+	game: require("./engine/Game.js"),
+	player: require("./engine/Player.js")
+}
