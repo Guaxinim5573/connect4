@@ -56,3 +56,4 @@ game.board // Retorna o quadro do jogo
 **5antos**
 
 <img src="https://img.shields.io/static/v1?label=&message=5antos%234876&logo=discord&style=flat&color=blue&logoColor=white">
+<a target="_blank" href="https://github.com/5antos"><img src="https://img.shields.io/static/v1?label=Follow&message=5antos&logo=github&style=social"></a>
