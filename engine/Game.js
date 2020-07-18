@@ -100,5 +100,31 @@ class Game {
 		}
 		return null
 	}
+
+	checkDiagonalRight() {
+		const array = this.board
+		for(let i = 0;i < array.length;i++) {
+			const part = array[i]
+			if(part === null) continue
+			const nextParts = [this.board[i + 8], this.board[i + 16], this.board[i + 24]]
+			if(nextParts.every(p => p === part)) {
+				return part
+			}
+		}
+		return null
+	}
+
+	checkDiagonalLeft() {
+		const array = this.board
+		for(let i = 0;i < array.length;i++) {
+			const part = array[i]
+			if(part === null) continue
+			const nextParts = [this.board[i + 6], this.board[i + 12], this.board[i + 18]]
+			if(nextParts.every(p => p === part)) {
+				return part
+			}
+		}
+		return null
+	}
 }
 module.exports = Game
