@@ -32,7 +32,7 @@ class Game {
 
 
 		/** Quantas peças existe em cada coluna */
-		this.columns = new Array(6).fill(0)
+		this.columns = new Array(7).fill(0)
 
 		/**
 		 * Status do jogo
@@ -63,25 +63,25 @@ class Game {
 		this.columns[column]++
 		this.plays++
 
-		const winner = checkWinner()
+		const winner = this.checkWinner()
 		if(winner) {
 			this.status = "WIN"
 			this.winner = this.players[winner]
 		}
-		if(plays >= 42 && !winner) {
+		if(this.plays >= 42 && !winner) {
 			this.status = "TIE"
 		}
 		return true
 	}
 
 	checkWinner() {
-		const horizontal = checkHorizontal()
+		const horizontal = this.checkHorizontal()
 		if(horizontal) return horizontal
-		const vertical = checkVertical()
+		const vertical = this.checkVertical()
 		if(vertical) return vertical
-		const diagonalLeft = checkDiagonalLeft()
+		const diagonalLeft = this.checkDiagonalLeft()
 		if(diagonalLeft) return diagonalLeft
-		const diagonalRight = checkDiagonalRight()
+		const diagonalRight = this.checkDiagonalRight()
 		if(diagonalRight) return diagonalRight
 
 		return null
