@@ -28,7 +28,7 @@ npm install git+https://github.com/Guaxinim5573/connect4.git
 ## Exemplos
 
 ```js
-const {Game} = require("connect4")
+const {Game} = require("connect-4")
 const game = new Game("player 1 name", "player 2 name")
 
 game.insert(0) // Player 1 coloca peça na primeira coluna
