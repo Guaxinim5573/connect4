@@ -1,4 +1,4 @@
 module.exports = {
-	game: require("./engine/Game.js"),
-	player: require("./engine/Player.js")
+	Game: require("./engine/Game.js"),
+	Player: require("./engine/Player.js")
 }
