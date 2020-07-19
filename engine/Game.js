@@ -15,12 +15,10 @@ function splitArray(array, size) {
 class Game {
 	/**
 	 * @param {String} player1 Player 1 name
-	 * @param {Object} user1 Player 1 full info
 	 * @param {String} player2 Player 2 name
-	 * @param {Object} user2 Player 2 full info
 	 */
-	constructor(player1, user1, player2, user2) {
-		this.players = [new Player(player1, user1, this, 0), new Player(player2, user2, this, 1)]
+	constructor(player1, player2) {
+		this.players = [new Player(player1, this, 0), new Player(player2, this, 1)]
 		/** Quadro do jogo */
 		this.board = new Array(42).fill(null)
 		/*
@@ -143,6 +141,7 @@ class Game {
 			if(part === null) continue
 			const nextParts = [this.board[i + 8], this.board[i + 16], this.board[i + 24]]
 			if(nextParts.every(p => p === part)) {
+				console.log("dr " + i)
 				return part
 			}
 		}
@@ -156,6 +155,7 @@ class Game {
 			if(part === null) continue
 			const nextParts = [this.board[i + 6], this.board[i + 12], this.board[i + 18]]
 			if(nextParts.every(p => p === part)) {
+				console.log("dl " + i)
 				return part
 			}
 		}
