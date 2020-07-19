@@ -15,10 +15,12 @@ function splitArray(array, size) {
 class Game {
 	/**
 	 * @param {String} player1 Player 1 name
+	 * @param {Object} user1 Player 1 full info
 	 * @param {String} player2 Player 2 name
+	 * @param {Object} user2 Player 2 full info
 	 */
-	constructor(player1, player2) {
-		this.players = [new Player(player1, this, 0), new Player(player2, this, 1)]
+	constructor(player1, user1, player2, user2) {
+		this.players = [new Player(player1, user1, this, 0), new Player(player2, user2, this, 1)]
 		/** Quadro do jogo */
 		this.board = new Array(42).fill(null)
 		/*
