@@ -1,20 +1,53 @@
 {
-  "name": "connect-4",
-  "version": "0.1.0",
-  "description": "Connect 4 game in Discord using JS",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
-  "repository": {
+  "_from": "git+https://github.com/Guaxinim5573/connect4.git",
+  "_id": "connect-4@0.1.0",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/connect-4",
+  "_phantomChildren": {},
+  "_requested": {
     "type": "git",
-    "url": "https://github.com/Guaxinim5573/connect4.git"
+    "raw": "git+https://github.com/Guaxinim5573/connect4.git",
+    "rawSpec": "git+https://github.com/Guaxinim5573/connect4.git",
+    "saveSpec": "git+https://github.com/Guaxinim5573/connect4.git",
+    "fetchSpec": "https://github.com/Guaxinim5573/connect4.git",
+    "gitCommittish": null
   },
-  "keywords": ["connect4", "discord", "discord.js", "bot", "discord bot", "game", "engine"],
-  "author": "Guaxinim5573",
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/Guaxinim5573/connect4.git#09bbcfca90d047994d9c6fa22cd84c5cbac0e1c2",
+  "_spec": "git+https://github.com/Guaxinim5573/connect4.git",
+  "_where": "C:\\Users\\pedro\\OneDrive\\Ambiente de Trabalho\\Connect4",
+  "author": {
+    "name": "Guaxinim5573"
+  },
   "bugs": {
     "url": "https://github.com/Guaxinim5573/connect4/issues"
   },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Connect 4 game in Discord using JS",
   "homepage": "https://github.com/Guaxinim5573/connect4",
-  "license": "MIT"
+  "keywords": [
+    "connect4",
+    "discord",
+    "discord.js",
+    "bot",
+    "discord bot",
+    "game",
+    "engine"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "connect-4",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Guaxinim5573/connect4.git"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "version": "0.1.0"
 }
