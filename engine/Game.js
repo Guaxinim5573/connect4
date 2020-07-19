@@ -66,25 +66,29 @@ class Game {
 		this.plays++
 
 		const winner = this.checkWinner()
-		if(winner) {
+		if(winner !== null) {
 			this.status = "WIN"
 			this.winner = this.players[winner]
 		}
-		if(this.plays >= 42 && !winner) {
+		if(this.plays >= 42 && winner === null) {
 			this.status = "TIE"
 		}
 		return true
 	}
 
-	checkWinner() {
+	checkWinner(a) {
 		const horizontal = this.checkHorizontal()
-		if(horizontal) return horizontal
+		if(a) console.log("h " + horizontal)
+		if(horizontal !== null) return horizontal
 		const vertical = this.checkVertical()
-		if(vertical) return vertical
+		if(a) console.log("v " + vertical)
+		if(vertical !== null) return vertical
 		const diagonalLeft = this.checkDiagonalLeft()
-		if(diagonalLeft) return diagonalLeft
+		if(a) console.log("dl " + diagonalLeft)
+		if(diagonalLeft !== null) return diagonalLeft
 		const diagonalRight = this.checkDiagonalRight()
-		if(diagonalRight) return diagonalRight
+		if(a) console.log("dr " + diagonalRight)
+		if(diagonalRight !== null) return diagonalRight
 
 		return null
 	}
@@ -111,14 +115,20 @@ class Game {
 		const array = splitArray(this.board, 7)
 		for(let i = 0;i < array.length;i++) {
 			const line = array.map(e => e[i])
+			//console.log(line)
+			//console.log("-------------")
 			const previus = [null, null, null]
 			for(let i = 0;i < line.length;i++) {
 				const part = line[i]
-				//console.log(part)
 				if(part === null) continue
+				//console.log(part)
+				//console.log(previus)
 				if(previus.every(p => p === part)) {
+					//console.log("every true")
 					return part
 				}
+				//console.log("0 == 0: " + (0 == 0))
+				//console.log("0 === 0: " + (0 === 0))
 				previus.pop()
 				previus.unshift(part)
 			}
