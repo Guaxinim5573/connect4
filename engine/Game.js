@@ -74,7 +74,7 @@ class Game {
 		return true
 	}
 
-	checkWinner(a) {
+	checkWinner() {
 		const horizontal = this.checkHorizontal()
 		if(horizontal !== null) return horizontal
 		const vertical = this.checkVertical()
@@ -124,26 +124,33 @@ class Game {
 	}
 
 	checkDiagonalRight() {
-		const array = this.board
-		for(let i = 0;i < array.length;i++) {
-			const part = array[i]
-			if(part === null) continue
-			const nextParts = [this.board[i + 8], this.board[i + 16], this.board[i + 24]]
-			if(nextParts.every(p => p === part)) {
-				return part
+		const array = splitArray(this.board, 7)
+		for(let l = 0;l < array.length - 3;l++) {
+			const line = array[l]
+			for(let i = 0;i < line.length - 3;i++) {
+				const part = line[i]
+				if(part === null) continue
+				const others = [array[l+1][i+1], array[l+2][i+2], array[l+3][i+3]]
+				if(others.every(p => p === part)) {
+					return part
+				}
 			}
 		}
 		return null
 	}
 
+
 	checkDiagonalLeft() {
-		const array = this.board
-		for(let i = 0;i < array.length;i++) {
-			const part = array[i]
-			if(part === null) continue
-			const nextParts = [this.board[i + 6], this.board[i + 12], this.board[i + 18]]
-			if(nextParts.every(p => p === part)) {
-				return part
+		const array = splitArray(this.board, 7)
+		for(let l = 2;l >= 0;l--) {
+			const line = array[l]
+			for(let i = line.length - 1;i >= 3;i--) {
+				const part = line[i]
+				if(part === null) continue
+				const others = [array[l+1][i-1], array[l+2][i-2], array[l+3][i-3]]
+				if(others.every(p => p === part)) {
+					return part
+				}
 			}
 		}
 		return null

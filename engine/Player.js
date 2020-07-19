@@ -8,7 +8,7 @@ class Player {
 	 * @param {Game} game Game que o jogador está jogando
 	 * @param {Number} id Player id
 	 */
-	constructor(name, user, game, id) {
+	constructor(name, game, id) {
 		this.name = name
 		this.game = game
 		this.id = id
