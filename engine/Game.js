@@ -94,7 +94,11 @@ class Game {
 			const previus = [null, null, null]
 			for(let i = 0;i < line.length;i++) {
 				const part = line[i]
-				if(part === null) continue
+				if(part === null) {
+					previus.pop()
+					previus.unshift(part)
+					continue
+				}
 				if(previus.every(p => p === part)) {
 					return part
 				}
@@ -112,7 +116,11 @@ class Game {
 			const previus = [null, null, null]
 			for(let i = 0;i < line.length;i++) {
 				const part = line[i]
-				if(part === null) continue
+				if(part === null) {
+					previus.pop()
+					previus.unshift(part)
+					continue
+				}
 				if(previus.every(p => p === part)) {
 					return part
 				}
