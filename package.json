@@ -47,7 +47,11 @@
     "url": "git+https://github.com/Guaxinim5573/connect4.git"
   },
   "scripts": {
-    "start": "node index.js"
+    "test": "mocha test.js"
   },
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.0.1"
+  }
 }

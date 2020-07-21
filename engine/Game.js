@@ -17,7 +17,7 @@ class Game {
 	 * @param {String} player1 Player 1 name
 	 * @param {String} player2 Player 2 name
 	 */
-	constructor(player1, player2) {
+	constructor(player1, player2, options = {}) {
 		this.players = [new Player(player1, this, 0), new Player(player2, this, 1)]
 		/** Quadro do jogo */
 		this.board = new Array(42).fill(null)
@@ -43,7 +43,11 @@ class Game {
 		/** Quantas jogadas já foram feitas */
 		this.plays = 0
 
+		/** Quem ganhou o jogo */
 		this.winner = null
+
+		/** Opções */
+		this.options = options
 	}
 
 	get currentPlayer() {
@@ -74,6 +78,10 @@ class Game {
 		return true
 	}
 
+	/**
+	* Checa quem se alguém ganhou
+	* @returns {?number} Quem ganhou
+	*/
 	checkWinner() {
 		const horizontal = this.checkHorizontal()
 		if(horizontal !== null) return horizontal
@@ -89,10 +97,12 @@ class Game {
 
 	checkHorizontal() {
 		const array = splitArray(this.board, 7)
+		let index = 0
 		for(let l = 0;l < array.length;l++) {
 			const line = array[l]
 			const previus = [null, null, null]
 			for(let i = 0;i < line.length;i++) {
+				index++
 				const part = line[i]
 				if(part === null) {
 					previus.pop()
@@ -100,6 +110,12 @@ class Game {
 					continue
 				}
 				if(previus.every(p => p === part)) {
+					if(this.options.getWinnerLine) {
+						this.board[index-1] = 2
+						this.board[index-2] = 2
+						this.board[index-3] = 2
+						this.board[index-4] = 2
+					}
 					return part
 				}
 				previus.pop()
@@ -112,9 +128,11 @@ class Game {
 	checkVertical() {
 		const array = splitArray(this.board, 7)
 		for(let i = 0;i < array.length;i++) {
+			let index = 0 + (i * 1)
 			const line = array.map(e => e[i])
 			const previus = [null, null, null]
 			for(let i = 0;i < line.length;i++) {
+				index+=7
 				const part = line[i]
 				if(part === null) {
 					previus.pop()
@@ -122,6 +140,12 @@ class Game {
 					continue
 				}
 				if(previus.every(p => p === part)) {
+					if(this.options.getWinnerLine) {
+						this.board[index-7] = 2
+						this.board[index-14] = 2
+						this.board[index-21] = 2
+						this.board[index-28] = 2
+					}
 					return part
 				}
 				previus.pop()
@@ -135,11 +159,19 @@ class Game {
 		const array = splitArray(this.board, 7)
 		for(let l = 0;l < array.length - 3;l++) {
 			const line = array[l]
+			let index = 0 + (l * 7)
 			for(let i = 0;i < line.length - 3;i++) {
+				index++
 				const part = line[i]
 				if(part === null) continue
 				const others = [array[l+1][i+1], array[l+2][i+2], array[l+3][i+3]]
 				if(others.every(p => p === part)) {
+					if(this.options.getWinnerLine) {
+						this.board[index-1] = 2
+						this.board[index+7] = 2
+						this.board[index+15] = 2
+						this.board[index+23] = 2
+					}
 					return part
 				}
 			}
@@ -151,12 +183,20 @@ class Game {
 	checkDiagonalLeft() {
 		const array = splitArray(this.board, 7)
 		for(let l = 2;l >= 0;l--) {
+			let index = 6 + (l * 7)
 			const line = array[l]
 			for(let i = line.length - 1;i >= 3;i--) {
+				index--
 				const part = line[i]
 				if(part === null) continue
 				const others = [array[l+1][i-1], array[l+2][i-2], array[l+3][i-3]]
 				if(others.every(p => p === part)) {
+					if(this.options.getWinnerLine) {
+						this.board[index+1] = 2
+						this.board[index+7] = 2
+						this.board[index+13] = 2
+						this.board[index+19] = 2
+					}
 					return part
 				}
 			}
