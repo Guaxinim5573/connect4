@@ -8,15 +8,6 @@ function splitArray(array, size) {
 	return result
 }
 
-game.board.map(p => {
-	if(p === 1) return "A"
-	else if(p === 0) return "B"
-	else if(p === 2) {
-		return emojis[game.winner.id]
-	}
-	else return "NOP"
-})
-
 /**
  * Uma classe que representa um jogo
  * @class
