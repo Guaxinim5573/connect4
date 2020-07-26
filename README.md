@@ -1,9 +1,3 @@
-
-<div align="center">
-	<br>
-	<a href="https://discord.gg/AcmhNjG"><img alt="Discord" src="https://img.shields.io/badge/dynamic/json?color=BLACK&style=social&label=LabNegro&prefix=Online%20&query=presence_count&url=https%3A%2F%2Fdiscord.com%2Fapi%2Fguilds%2F425864977996578816%2Fembed.json"></a>
-</div>
-
 # Connect4
 Código para evento do servidor de Discord LabNegro.
 Esta é a dependência criada especialmente para o bot funcionar.
