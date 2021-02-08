@@ -1,12 +1,12 @@
 /**
- * Representa um jogador
+ * A Connect 4 player
  * @class
  */
 class Player {
 	/**
-	 * @param {String} name Nome do jogador
-	 * @param {Game} game Game que o jogador está jogando
-	 * @param {Number} id Player id
+	 * @param {String} name Player's name
+	 * @param {Game} game Player's game
+	 * @param {Number} id Player's id
 	 */
 	constructor(name, game, id) {
 		this.name = name

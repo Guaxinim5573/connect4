@@ -9,7 +9,7 @@ function splitArray(array, size) {
 }
 
 /**
- * Uma classe que representa um jogo
+ * A game
  * @class
  */
 class Game {
@@ -19,7 +19,7 @@ class Game {
 	 */
 	constructor(player1, player2, options = {}) {
 		this.players = [new Player(player1, this, 0), new Player(player2, this, 1)]
-		/** Quadro do jogo */
+		/** Game board */
 		this.board = new Array(42).fill(null)
 		/*
 			0   , 1   , 2   , 3   , 4   , 5   , 6
@@ -31,22 +31,22 @@ class Game {
 		*/
 
 
-		/** Quantas peças existe em cada coluna */
+		/** Columns */
 		this.columns = new Array(7).fill(0)
 
 		/**
-		 * Status do jogo
+		 * Game status
 		 * IN_PROGRESS, TIE, WIN
 		 */
 		this.status = "IN_PROGRESS"
 
-		/** Quantas jogadas já foram feitas */
+		/** How many turns have passed */
 		this.plays = 0
 
-		/** Quem ganhou o jogo */
+		/** Who won the game */
 		this.winner = null
 
-		/** Opções */
+		/** Options */
 		this.options = options
 	}
 
@@ -55,9 +55,9 @@ class Game {
 	}
 
 	/**
-	 * Coloca uma peça em alguma coluna
-	 * @param {Number} column Número da coluna, começando do 0
-	 * @returns {Boolean} Se a jogada é válida
+	 * Insert a disk in a column
+	 * @param {Number} column Column number, starts at 0
+	 * @returns {Boolean} If it's a valid move
 	 */
 	insert(column) {
 		if(this.columns[column] >= 6) return false
@@ -79,8 +79,8 @@ class Game {
 	}
 
 	/**
-	* Checa quem se alguém ganhou
-	* @returns {?number} Quem ganhou
+	* Check if someone won
+	* @returns {?number} Who won
 	*/
 	checkWinner() {
 		const horizontal = this.checkHorizontal()
