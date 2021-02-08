@@ -10,7 +10,7 @@ Connect 4 is a two-player [connection](https://en.wikipedia.org/wiki/Connection_
 ## Sumary
 
 - [Install](#Install)
-- [Examples]#Examples)
+- [Examples](#Examples)
 - [Contributors](#Contributors)
 
 ## Install
