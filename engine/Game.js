@@ -60,7 +60,8 @@ class Game {
 	 * @returns {Boolean} If it's a valid move
 	 */
 	insert(column) {
-		if(column > 6) return false
+		if(typeof column !== "number" || column === NaN) return false
+		if(column > 6 || column < 0) return false
 		if(this.columns[column] >= 6) return false
 		if(this.status !== "IN_PROGRESS") return false
 		const index = (6 - this.columns[column]) * 7 - (7 - column)
